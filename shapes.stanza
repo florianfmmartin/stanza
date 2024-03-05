@@ -1,0 +1,24 @@
+defpackage shapes :
+    import core
+    import math
+
+public defstruct Point :
+    x: Double
+    y: Double
+
+public defstruct Circle :
+    x: Double
+    y: Double
+    radius: Double
+
+public defn area (s: Point | Circle) -> Double :
+    match(s) :
+        (s: Point) : 0.0
+        (s: Circle) : PI * radius(s) * radius(s)
+
+defmethod print (o: OutputStream p: Point) :
+    print(o "Point(%_, %_)" % [x(p) y(p)])
+
+defmethod print (o: OutputStream c: Circle) :
+    print(o "Circle(%_, %_, %_)" % [x(c) y(c) radius(c)])
+
